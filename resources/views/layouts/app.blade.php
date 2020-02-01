@@ -6,11 +6,15 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+      
 
     <title>{{ config('app.name', 'DonorBook') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -72,7 +76,7 @@
                   <a class="nav-link" href="{{ route('welcome') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('donateBlood') }}">Why give Blood?</a>
+                  <a class="nav-link" href="{{ route('donateBlood') }}">Why Donate Blood?</a>
                 </li>
                 @if (Route::has('register'))
                         <li class="nav-item">
@@ -97,5 +101,7 @@
             @yield('content')
         </main>
     </div>
+    @yield('js')
 </body>
+
 </html>
