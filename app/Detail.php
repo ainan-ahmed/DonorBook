@@ -17,6 +17,6 @@ class Detail extends Model
         'user_id','first_name','last_name' ,'blood_group', 'division','city','phone','eligibility'
     ];
     public function user(){
-        return $this->belongsTo(User);
+        return $this->belongsTo('App\Detail');
     }
 }

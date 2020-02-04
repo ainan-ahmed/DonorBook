@@ -48,6 +48,7 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 Route::get('/search','searchController@getSearch')->name('search');
+Route::get('/search/list','searchController@searchDonor')->name('donorList');
 Route::name('users.')->group(function () {
     Route::get('users/{id}','UserController@show')->name('show');
     Route::get('users/{id}/edit','UserController@edit')->name('edit');
