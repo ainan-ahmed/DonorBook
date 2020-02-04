@@ -25,12 +25,27 @@ class searchController extends Controller
             $head='';
             if($blood == "Select blood group")$f1 = false;
             if($division == "Select division")$f2 = false;
-            if($f1 && $f2)
+
+
+            
+            if($blood=="All" || $division== "All")
+            {
+                if(($blood=="All" && $division == "All")|| ($blood=="All" && $f2==false) || ($division =="Al" && $f1 == false))
+                    $list = Detail::all();     
+                else if($blood == "All")
+                    $list = Detail::all()->where('division',$request->division);    
+                else 
+                    $list = Detail::all()->where('blood_group',$request->blood);
+            }
+            else if($f1 && $f2)
             $list = Detail::all()->where('blood_group',$request->blood)->where('division',$request->division);
             else if($f1)
             $list = Detail::all()->where('blood_group',$request->blood);
             else if($f2)
             $list = Detail::all()->where('division',$request->division);
+            else{
+                $head = "<h2 class='text-center font-weight-bolder' style='color:red'>No Donor Found. </h2>";
+            }
             if($list->count() >0)
             {
                 $head = "<tr>
@@ -58,9 +73,6 @@ class searchController extends Controller
                     </tr>
                     ";
                 }
-            }
-            else{
-                $head = "<h2 class='text-center font-weight-bolder' style='color:red'>No Donor Found. </h2>";
             }
             $data = array(
                 'head'=>$head,

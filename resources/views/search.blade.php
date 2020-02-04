@@ -110,6 +110,7 @@
                 <select class="browser-default custom-select" id="blood_group" name="blood_group"
                     onchange="getBlood(this)">
                     <option disabled selected>Select blood group</option>
+                    <option value="All">All</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
                     <option value="B+">B+</option>
@@ -130,6 +131,7 @@
             <div class="col-md-4 float-left">
                 <select class="browser-default custom-select" id="division" name="division" onchange="getDivision(this)">
                     <option disabled selected>Select division</option>
+                    <option value="All">All</option>
                     <option value="Dhaka">Dhaka</option>
                     <option value="Chittagong">Chittagong</option>
                     <option value="Khulna">Khulna</option>
